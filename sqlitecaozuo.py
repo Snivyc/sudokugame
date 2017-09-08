@@ -9,6 +9,11 @@ ins = 'INSERT INTO A VALUES(?)'
 curs.execute("select score from A")
 print(curs.fetchall())
 
+curs.execute('''create table B
+(score INT)''')
+
+curs.execute('''create table C
+(score INT)''')
 
 curs.close()
 conn.close()
