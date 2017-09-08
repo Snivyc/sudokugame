@@ -247,7 +247,7 @@ class Ui_MainWindow(object):
                 if t != self.sudokulst[1][i//9][i%9]:
                     break
         else:
-            print("end")
+            # print("end")
             self.timer.stop()
             conn = sqlite3.connect('score.db')
             curs = conn.cursor()
@@ -269,9 +269,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         conn = sqlite3.connect('score.db')
         curs = conn.cursor()
+
         curs.execute("select * from A order by score limit 10")
         lst = curs.fetchall()
-        print(lst)
         for i in range(len(lst)):
             item = self.tableWidget.item(i, 1)
             item.setText(_translate("MainWindow", str(lst[i][0])))
