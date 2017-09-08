@@ -21,6 +21,7 @@ class Ui_MainWindow(object):
         self.sudokulst = None
         self.mode = 1
 
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -45,7 +46,8 @@ class Ui_MainWindow(object):
         # MainWindow.setStatusBar(self.statusbar)
         self.actionguize = QtWidgets.QAction(MainWindow)
         self.actionguize.setObjectName("actionguize")
-        self.actionguize.triggered.connect(lambda :QtWidgets.QMessageBox.information(self.centralwidget, "游戏规则", "游戏完成！"))
+        self.actionguize.triggered.connect(lambda :QtWidgets.QMessageBox.information(self.centralwidget, "游戏规则",
+        "    玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，并满足每一行、每一列、每一个粗线宫内的数字均含1-9，不重复。"))
 
         self.actiontuichu = QtWidgets.QAction(MainWindow)
         self.actiontuichu.setObjectName("actiontuichu")
@@ -53,7 +55,6 @@ class Ui_MainWindow(object):
         self.menu.addAction(self.actionguize)
         self.menu.addAction(self.actiontuichu)
         self.menubar.addAction(self.menu.menuAction())
-        # self.menubar.triggered.connect(QtWidgets.qApp.quit)
 
 
         for i in range(4):
@@ -302,7 +303,7 @@ if __name__=="__main__":
     widget.show()
     # time.sleep(2)
 
-    ui.restar()
+    ui.change_to_normal()
     # sudo = Suduku5.get_sudo(30)
     # show(sudo)
 
