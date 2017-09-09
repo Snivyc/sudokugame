@@ -126,7 +126,7 @@ class Ui_MainWindow(object):
                 temp.setGeometry(QtCore.QRect(60 + j * 40, 160 + i * 40, 40, 40))
                 temp.setObjectName("lineEdit_" + str(i) + str(j))
                 temp.setAlignment(QtCore.Qt.AlignCenter)
-                temp.setFont(QtGui.QFont("微软雅黑",12))
+                temp.setFont(QtGui.QFont("微软雅黑", 12))
                 temp.textChanged.connect(self.judge)
         # self.lineEditlst[1].setText(str(3))
 
@@ -139,7 +139,7 @@ class Ui_MainWindow(object):
         # MainWindow.setStatusBar(self.statusbar)
 
         self.lcdNumber = QtWidgets.QLCDNumber(self.centralwidget)
-        self.lcdNumber.setGeometry(QtCore.QRect(320, 60, 180, 70))
+        self.lcdNumber.setGeometry(QtCore.QRect(310, 60, 180, 70))
         self.lcdNumber.setObjectName("lcdNumber")
 
         self.timer = QtCore.QTimer()
@@ -176,16 +176,25 @@ class Ui_MainWindow(object):
 
     def change_to_easy(self):
         self.mode = 1
+        self.pushButton_4.setEnabled(False)
+        self.pushButton_5.setEnabled(True)
+        self.pushButton_6.setEnabled(True)
         createSudokuProblem.blockNum = 25
         self.restar()
 
     def change_to_normal(self):
         self.mode = 2
+        self.pushButton_4.setEnabled(True)
+        self.pushButton_5.setEnabled(False)
+        self.pushButton_6.setEnabled(True)
         createSudokuProblem.blockNum = 35
         self.restar()
 
     def change_to_hard(self):
         self.mode = 3
+        self.pushButton_4.setEnabled(True)
+        self.pushButton_5.setEnabled(True)
+        self.pushButton_6.setEnabled(False)
         createSudokuProblem.blockNum = 45
         self.restar()
 
@@ -221,6 +230,7 @@ class Ui_MainWindow(object):
 
 
     def show_answer(self):
+        self.timer.stop()
         for i in self.lineEditlst:
             i.textChanged.disconnect(self.judge)
         lst = self.sudokulst[1]

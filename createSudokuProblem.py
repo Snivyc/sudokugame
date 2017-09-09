@@ -5,7 +5,7 @@ import copy
 
 global s
 global lst
-blockNum = 1
+blockNum = 45
 # count = 0
 # for i in range(10):
 #     num = random.randint(0, len(lst) - 1)
@@ -45,7 +45,8 @@ def create():
     global lst
     global s
     lst = [i for i in range(81)]
-    s = createSudoku.create()
+    cs = createSudoku.Sudoku()
+    s = cs.create()
     ts = copy.deepcopy(s)
     dig(0)
     return s, ts
