@@ -20,6 +20,7 @@ class Ui_MainWindow(object):
     def __init__(self):
         self.sudokulst = None
         self.mode = 1
+        self.problem = createSudokuProblem.Problem()
 
 
     def setupUi(self, MainWindow):
@@ -179,7 +180,7 @@ class Ui_MainWindow(object):
         self.pushButton_4.setEnabled(False)
         self.pushButton_5.setEnabled(True)
         self.pushButton_6.setEnabled(True)
-        createSudokuProblem.blockNum = 25
+        self.problem.blockNum = 25
         self.restar()
 
     def change_to_normal(self):
@@ -187,7 +188,7 @@ class Ui_MainWindow(object):
         self.pushButton_4.setEnabled(True)
         self.pushButton_5.setEnabled(False)
         self.pushButton_6.setEnabled(True)
-        createSudokuProblem.blockNum = 35
+        self.problem.blockNum = 35
         self.restar()
 
     def change_to_hard(self):
@@ -195,11 +196,11 @@ class Ui_MainWindow(object):
         self.pushButton_4.setEnabled(True)
         self.pushButton_5.setEnabled(True)
         self.pushButton_6.setEnabled(False)
-        createSudokuProblem.blockNum = 45
+        self.problem.blockNum = 45
         self.restar()
 
     def print_number(self):
-        self.sudokulst = createSudokuProblem.create()
+        self.sudokulst = self.problem.create()
         lst = self.sudokulst[0]
         for i in range(9):
             for j in range(9):
