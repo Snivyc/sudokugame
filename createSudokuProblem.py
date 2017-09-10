@@ -12,8 +12,6 @@ class Problem(object):
 
     def dig(self, count):
         # print(count)
-        global lst
-        global s
         if count == self.blockNum:
             return True
         templst = copy.copy(self.lst)
@@ -31,12 +29,10 @@ class Problem(object):
                     return True
             self.sudoku[y][x] = temp
             # lst.insert(num, k)
-        lst = templst
+        self.lst = templst
         return False
 
     def create(self):
-        # global lst
-        # global s
         self.lst = [i for i in range(81)]
         cs = createSudoku.Sudoku()
         self.sudoku = cs.create()

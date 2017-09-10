@@ -19,7 +19,7 @@ class Solution(object):
         self.count = 0
         self.cal()
 
-    # 检查是num是否能填进(x,y)里
+    # 检查num是否能填进(x,y)里
     def check(self, x, y, num):
         if num in self.sudoku[y]:  # 行中是否有相同元素
             return False
@@ -33,13 +33,13 @@ class Solution(object):
 
     # 找到下一个需要填的数，返回坐标；如果已经填完，返回（-1，-1）
     def get_next(self, x, y):
-        for i in range(x+1,9):
+        for i in range(x+1, 9):
             if self.sudoku[y][i] == 0:
-                return i,y
-        for i in range(y+1,9):
+                return i, y
+        for i in range(y+1, 9):
             for j in range(9):
                 if self.sudoku[i][j] == 0:
-                    return j,i
+                    return j, i
         return -1, -1
 
     # 解出点(x,y)的结果，如果解出，则解(next_x,next_y)的结果；解不出或(next_x,next_y)无法顺利填完，则返回False
@@ -59,7 +59,6 @@ class Solution(object):
                 else:
                     self.solve(next_x, next_y)  # 如果未填完，填下一个，如果后续节点均顺利填完（返回True），则也返回True
         self.sudoku[y][x] = 0  # 遍历了所有结果，都无法填入，则将当前结点改回0，返回False
-        return False
 
     # 返回第一个节点
     def get_first(self):
