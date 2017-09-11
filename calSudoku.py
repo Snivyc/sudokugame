@@ -44,8 +44,8 @@ class Solution(object):
 
     # 解出点(x,y)的结果，如果解出，则解(next_x,next_y)的结果；解不出或(next_x,next_y)无法顺利填完，则返回False
     def solve(self, x, y):
-        if self.count > 1:
-            return
+        # if self.count > 1:
+        #     return
         next_x, next_y = self.get_next(x, y)
         # print(next_x,next_y)
         for i in range(1, 10):  # 将1-9尝试填入当前的空格
@@ -69,7 +69,17 @@ class Solution(object):
         self.solve(first_x, first_y)
 
 if __name__ == "__main__":
-    print(sudoku)
+    sudoku = [
+        [8,0,0,0,0,0,0,0,0],
+        [0,0,3,6,0,0,0,0,0],
+        [0,7,0,0,9,0,2,0,0],
+        [0,5,0,0,0,7,0,0,0],
+        [0,0,0,0,4,5,0,0,0],
+        [0,0,0,1,0,0,0,3,0],
+        [0,0,1,0,0,0,0,6,8],
+        [0,0,8,5,0,0,0,1,0],
+        [0,9,0,0,0,0,4,0,0]
+    ]
     s = Solution(sudoku)
     # print(s.sudoku)
     print(s.count)

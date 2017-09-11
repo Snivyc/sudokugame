@@ -31,9 +31,11 @@ class Sudoku(object):
 
 if __name__ == "__main__":
     A = Sudoku()
+    # for i in A.create():
+    #     print(i)
+    import time
+    t = time.time()
     for i in range(1000):
         A.create()
-        print(i)
-    # print(A.fuck/1000)
-    # create()
-    # print(sudoku)
+    print((time.time() - t)/1000)
+
