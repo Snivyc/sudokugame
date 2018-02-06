@@ -1,7 +1,9 @@
-import createSudokuProblem
+from createSudokuProblem import Problem
 
-createSudokuProblem.blockNum = 50
-for i in createSudokuProblem.create():
+problem = Problem()
+sudokuLst = problem.create()
+
+for i in sudokuLst:
     for j in i:
         print(j)
     print('-------------------------------')
