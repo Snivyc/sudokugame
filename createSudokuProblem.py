@@ -24,7 +24,7 @@ class Problem(object):
             temp = self.sudoku[y][x]
             self.sudoku[y][x] = 0
             cal = calSudoku.Solution(self.sudoku)
-            if cal.count == 1:
+            if cal.count == 1:  # 如果有且仅有一个解，挖下一个
                 if self.dig(count+1):
                     return True
             self.sudoku[y][x] = temp
